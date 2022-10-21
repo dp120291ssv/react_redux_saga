@@ -1,7 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from "react-redux";
 import {increaseCount, decreaseCount} from "./redux/actions/actionCreator";
-import store from "./redux/store";
 
 // https://react-redux.js.org/using-react-redux/usage-with-typescript#typing-the-useselector-hook
 type StoreProps = {
@@ -14,8 +13,6 @@ const App = () => {
     const count = useSelector((store: StoreProps)  => store?.counter?.count || 0);
     const dispatch = useDispatch();
     // const [count, setCount] = useState(0)
-
-    console.log('store', store)
 
     const handleIncrease = () => {
         // setCount(count + 1)
