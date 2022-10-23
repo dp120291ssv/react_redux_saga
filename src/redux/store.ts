@@ -5,12 +5,18 @@ import rootSaga from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
+declare global {
+    interface Window {
+        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    }
+}
+
 const composeEnhancers =
     typeof window === 'object' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
-const configureStore = preloadedState => createStore(
+const configureStore = (preloadedState: { counter?: { count: number; } | undefined; } | undefined) => createStore(
     reducer,
     preloadedState,
     composeEnhancers(applyMiddleware(sagaMiddleware)),

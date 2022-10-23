@@ -1,5 +1,6 @@
 import {INCREASE_COUNT, DECREASE_COUNT} from "../constants";
 
+// @ts-ignore
 const counter = (state = { count: 0 }, { type }) => {
     switch (type) {
         case INCREASE_COUNT: return { ...state, count: state.count + 1 };
