@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from "react-redux";
-import {increaseCount, decreaseCount, getLatestNews} from "./redux/actions/actionCreator";
+import {increaseCount, decreaseCount, getNews} from "./redux/actions/actionCreator";
 import store from "./redux/store";
 import News from "./components/news/news";
 
@@ -33,7 +33,8 @@ const App = () => {
 
     const handleNews = () => {
         // setCount(count - 1)
-        dispatch(getLatestNews())
+        // dispatch(getLatestNews())
+        dispatch(getNews())
     }
 
     return (
